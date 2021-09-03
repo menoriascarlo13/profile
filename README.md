@@ -1,2 +1,2 @@
 # profile
- development framework using gulp as automator / compiler
+ Boilerplate using gulp as automator / compiler
