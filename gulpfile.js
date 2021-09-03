@@ -27,8 +27,8 @@ const beautify = require('gulp-beautify');
 const concat = require('gulp-concat');
 
 function styles() {
-    return src('build/styles/*.+(scss|sass)')
-        .pipe(changed('build/styles/*.+(scss|sass)'))
+    return src('src/styles/*.+(scss|sass)')
+        .pipe(changed('src/styles/*.+(scss|sass)'))
         .pipe(sassGlob())
         .pipe(sass())
         .pipe(gulpIf('*.css', cssnano()))
@@ -40,13 +40,13 @@ function styles() {
 }
 
 function fonts() {
-    return src('build/fonts/**/*')
+    return src('src/fonts/**/*')
         .pipe(dest('dist/fonts'))
 }
 
 function scripts() {
-    return src('build/scripts/*.js')
-        .pipe(changed('build/scripts/*.js'))
+    return src('src/scripts/*.js')
+        .pipe(changed('src/scripts/*.js'))
         .pipe(gulpIf('*.js', uglify()))
         .pipe(concat('main.js'))
         .pipe(RevAll.revision())
@@ -55,7 +55,7 @@ function scripts() {
 }
 
 function images() {
-    return src('build/assets/**/*.+(png|jpg|gif|svg|jpeg)')
+    return src('src/assets/**/*.+(png|jpg|gif|svg|jpeg)')
         .pipe(cache(imagemin({
             interlaced: true
         })))
@@ -110,7 +110,7 @@ function mainRename() {
 }
 
 function injectTags() {
-    return src('build/views/**/*.html')
+    return src('src/views/**/*.html')
         .pipe(injectHTML())
         .pipe(beautify.html({
             indent_size: 2
@@ -133,14 +133,14 @@ exports.tags = series(
 exports.styles = series(
     cleanCSS,
     styles,
-    series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+    series(finalTags, mainRename, removeMain),
     index
 )
 
 exports.scripts = series(
     cleanJS,
     scripts,
-    series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+    series(finalTags, mainRename, removeMain),
     index
 )
 
@@ -152,22 +152,20 @@ exports.build = series(
 );
 
 exports.watcher = function() {
-    watch(['build/styles/theme/*.scss', 'build/styles/*.scss'], 
+    watch(['src/styles/theme/*.scss', 'src/styles/*.scss'], 
     { events: 'all' }, series(
         cleanCSS,
         styles,
-        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
         index
     ));
 
-    watch('build/scripts/*.js', { events: 'all' }, series(
+    watch('src/scripts/*.js', { events: 'all' }, series(
         cleanJS,
         scripts,
-        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
         index
     ));
 
-    watch(['build/views/*.html','build/views/top/*.html', 'build/views/bottom/*.html', 'build/views/partials/*.html'], 
+    watch(['src/views/*.html','src/views/top/*.html', 'src/views/bottom/*.html', 'src/views/partials/*.html'], 
         { events: 'all' }, 
         series(
         cleanViews,
