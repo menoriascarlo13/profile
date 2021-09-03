@@ -1,3 +1,21 @@
-#var {
-    display: none;
-}
+
+$white: #ffffff;
+$black: #000000;
+$red: #ff4136;
+
+$primary: $white;
+$secondary: $black;
+
+$body-bg: $primary;
+$body-color: $secondary;
+
+$theme-colors: (
+  "primary": $white,
+  "secondary": $secondary,
+  "danger": $red
+);
+
+$colors: (
+  "black": $black,
+  "red": $red
+) !default;

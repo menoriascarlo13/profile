@@ -118,6 +118,15 @@ function injectTags() {
 exports.clean = clean;
 exports.images = images;
 
+exports.tags = series(
+    cleanViews,
+    injectTags,
+    finalTags,
+    mainRename,
+    removeMain,
+    index
+)
+
 exports.styles = series(
     cleanCSS,
     styles,
