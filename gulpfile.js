@@ -165,6 +165,10 @@ exports.watcher = function() {
         index
     ));
 
+    watch('src/assets/**/*.+(png|jpg|gif|svg|jpeg)', { events: 'all' }, images);
+
+    watch('src/fonts/**/*', { events: 'all' }, fonts);
+
     watch(['src/views/*.html','src/views/top/*.html', 'src/views/bottom/*.html', 'src/views/partials/*.html'], 
         { events: 'all' }, 
         series(
