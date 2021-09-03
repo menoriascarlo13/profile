@@ -1,0 +1,14 @@
+nav {
+    min-height: 50px;
+
+    background-color: $black;
+
+    .nav-link {
+        color: $white;
+
+        &:hover {
+            text-decoration: underline;
+            color: $white;
+        }
+    }
+}

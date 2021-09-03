@@ -156,12 +156,14 @@ exports.watcher = function() {
     { events: 'all' }, series(
         cleanCSS,
         styles,
+        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
         index
     ));
 
     watch('src/scripts/*.js', { events: 'all' }, series(
         cleanJS,
         scripts,
+        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
         index
     ));
 
@@ -177,6 +179,6 @@ exports.watcher = function() {
         finalTags,
         mainRename,
         removeMain,
-        index
+        index,
     ));
 }

@@ -3,17 +3,14 @@ $white:           #ffffff;
 $black:           #000000;
 $red:             #ff4136;
 
-$primary:           $white;
-$secondary:         $black;
-
-$body-bg:           $primary;
-$body-color:        $secondary;
+$primary:           $black;
+$secondary:         $white;
 
 $grid-columns:      12;
 $grid-gutter-width: 1.5rem;
 
 $theme-colors: (
-  "primary":        $white,
+  "primary":        $primary,
   "secondary":      $secondary,
   "danger":         $red
 );
