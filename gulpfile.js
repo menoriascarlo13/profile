@@ -2,12 +2,14 @@ const {
     parallel,
     series,
     src,
-    dest
+    dest,
+    watch
 } = require('gulp');
 
 const dartSass = require('sass');
 const gulpSass = require('gulp-sass');
 const sass = gulpSass(dartSass);
+const sassGlob = require('gulp-sass-glob');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const useref = require('gulp-useref');
@@ -27,6 +29,7 @@ const concat = require('gulp-concat');
 function styles() {
     return src('build/styles/*.+(scss|sass)')
         .pipe(changed('build/styles/*.+(scss|sass)'))
+        .pipe(sassGlob())
         .pipe(sass())
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(RevAll.revision())
@@ -147,3 +150,31 @@ exports.build = series(
     series(cleanViews, injectTags, finalTags, mainRename, removeMain),
     index
 );
+
+exports.watcher = function() {
+    watch(['build/styles/theme/*.scss', 'build/styles/*.scss'], 
+    { events: 'all' }, series(
+        cleanCSS,
+        styles,
+        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+        index
+    ));
+
+    watch('build/scripts/*.js', { events: 'all' }, series(
+        cleanJS,
+        scripts,
+        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+        index
+    ));
+
+    watch(['build/views/*.html','build/views/top/*.html', 'build/views/bottom/*.html', 'build/views/partials/*.html'], 
+        { events: 'all' }, 
+        series(
+        cleanViews,
+        injectTags,
+        finalTags,
+        mainRename,
+        removeMain,
+        index
+    ));
+}
