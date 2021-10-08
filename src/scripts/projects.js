@@ -32,7 +32,7 @@ const projectList = {
 		new Cuttr('.js-project-description', {
 			//options here
 			truncate: 'words',
-			length: 16
+			length: 17
 		});
 	}
 }
@@ -68,9 +68,23 @@ const projectListData = [{
 }, {
 	"id": 5,
 	"projectName": "Jordan",
-	"projectDescription": "Jordan is a Scandinavian brand that has been caring for people’s teeth since 1927. Our range of high quality, easy-to-use and stylish products are designed for every stage of your life, making sure you will find one that fits you.	",
+	"projectDescription": "Jordan is a Scandinavian brand that has been caring for people’s teeth since 1927. Our range of high quality, easy-to-use and stylish products are designed for every stage of your life, making sure you will find one that fits you.",
 	"projectLink": "https://www.jordanoralcare.com/",
 	"projectYear": "2020",
 	"projectImage": "jordan.png"
+}, {
+	"id": 6,
+	"projectName": "Grand Frank",
+	"projectDescription": "Grand Frank is an E-commerce Website for Men Apparel, Essentials, Shirts, Tailoring, Trousers, etc",
+	"projectLink": "https://www.grandfrank.com/",
+	"projectYear": "2020",
+	"projectImage": "gf.png"
+}, {
+	"id": 7,
+	"projectName": "Maximsports NO",
+	"projectDescription": "Maxim is the first sports nutrition series launched in Europe, covering products for every stage of sports performance. Maxim's products are perfect for both top athletes and fitness enthusiasts. The product range is very wide and you are sure to find a suitable option, whatever your species.",
+	"projectLink": "https://www.maximsport.no/",
+	"projectYear": "2020",
+	"projectImage": "maxim-no.png"
 }
 ]
