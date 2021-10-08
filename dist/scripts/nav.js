@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
         navbarHeight = 56;
         console.log(navbar);
         console.log(navbarHeight);
-    }
+    } 
 });
 
 window.addEventListener("scroll",function(){

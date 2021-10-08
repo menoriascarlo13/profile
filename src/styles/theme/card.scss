@@ -11,6 +11,7 @@
 
 .project-image {
     @include aspect-ratio(16, 9);
+    overflow: hidden;
 
     img {
         transform: scale(1);

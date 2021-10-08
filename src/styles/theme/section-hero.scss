@@ -1,5 +1,7 @@
 .hero {
-    &-image {
+    .hero-image {
         @include aspect-ratio(16, 9);
+
+        margin-bottom: 0;
     }
 }
