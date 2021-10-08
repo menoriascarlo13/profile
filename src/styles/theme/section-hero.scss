@@ -2,9 +2,14 @@
 	position: relative;
 
 	.hero-image {
-		@include aspect-ratio(16, 9);
+		@include aspect-ratio(1, 2);
 
 		margin-bottom: 0;
+
+
+		@include media-breakpoint-up(lg) {
+			@include aspect-ratio(16, 9);
+		}
 	}
 
 	.hero-information {
