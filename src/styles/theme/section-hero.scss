@@ -1,7 +1,33 @@
 .hero {
-    .hero-image {
-        @include aspect-ratio(16, 9);
+	position: relative;
 
-        margin-bottom: 0;
-    }
+	.hero-image {
+		@include aspect-ratio(16, 9);
+
+		margin-bottom: 0;
+	}
+
+	.hero-information {
+		position: absolute;
+		top: 0;
+
+		width: 100%;
+		max-width: 571px;
+		height: 100%;
+		padding-left: 50px;
+	}
+
+	h2,
+	.h2 {
+		background-color: #FBB13C;
+	}
+
+	h1,
+	.h1,
+	h2,
+	.h2 {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }

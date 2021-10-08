@@ -47,10 +47,10 @@ function fonts() {
 function scripts() {
     return src('src/scripts/*.js')
         .pipe(changed('src/scripts/*.js'))
-        // .pipe(gulpIf('*.js', uglify()))
-        // .pipe(concat('main.js'))
-        // .pipe(RevAll.revision())
-        // .pipe(minify())
+        .pipe(gulpIf('*.js', uglify()))
+        .pipe(concat('main.js'))
+        .pipe(RevAll.revision())
+        .pipe(minify())
         .pipe(dest('dist/scripts'))
 }
 
@@ -83,21 +83,8 @@ function removeMain() {
 }
 
 function index() {
-    // return src('index.html')
-    //     .pipe(inject(src(['dist/scripts/*-min.js', 'dist/styles/*'], {
-    //         read: false
-    //     }), {
-    //         addRootSlash: false,
-    //         removeTags: true
-    //     }))
-    //     .pipe(beautify.html({
-    //         indent_size: 2
-    //     }))
-    //     .pipe(useref())
-    //     .pipe(dest('.'));
-
     return src('index.html')
-        .pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
+        .pipe(inject(src(['dist/scripts/*-min.js', 'dist/styles/*'], {
             read: false
         }), {
             addRootSlash: false,
@@ -108,6 +95,19 @@ function index() {
         }))
         .pipe(useref())
         .pipe(dest('.'));
+
+    // return src('index.html')
+    //     .pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
+    //         read: false
+    //     }), {
+    //         addRootSlash: false,
+    //         removeTags: true
+    //     }))
+    //     .pipe(beautify.html({
+    //         indent_size: 2
+    //     }))
+    //     .pipe(useref())
+    //     .pipe(dest('.'));
 }
 
 function finalTags() {
