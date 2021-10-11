@@ -12,6 +12,10 @@ const tech = {
 					<figure>
 						<img src="dist/images/images/${techData[key].techImage}" alt="${techData[key].techName}">
 					</figure>
+					<div class="tech-info text-center d-flex justify-content-center align-items-center">
+						<p class="tech-description d-none">${techData[key].techDescription}</p>
+						<p class="tech-level h4">Skill Level: ${techData[key].techLevel}</p>
+					</div>
 				</div>
 			`);
 
@@ -25,7 +29,8 @@ const tech = {
 			freeScroll: true,
 			wrapAround: true,
 			pageDots: false,
-			autoPlay: false
+			autoPlay: true,
+			groupCells: true
 		});
 	}
 }
@@ -34,37 +39,37 @@ const techListData = [{
 	"id": 1,
 	"techName": "HTML5",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "html-5.png"
 }, {
 	"id": 2,
 	"techName": "CSS3",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "css.png"
 }, {
 	"id": 3,
 	"techName": "Bootstrap 4/5",
 	"techDescription": "Sample",
-	"techLevel": "2019",
+	"techLevel": "Advanced",
 	"techImage": "bootstrap.png"
 }, {
 	"id": 4,
 	"techName": "SASS",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "sass.png"
 }, {
 	"id": 5,
 	"techName": "ES5",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "javascript.png"
 }, {
 	"id": 6,
 	"techName": "jQuery",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "jquery-vertical.svg"
 }, {
 	"id": 7,
@@ -76,31 +81,31 @@ const techListData = [{
 	"id": 8,
 	"techName": "VS Code",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Intermediate",
 	"techImage": "visual-basic.png"
 }, {
 	"id": 9,
 	"techName": "Github",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Intermediate",
 	"techImage": "github.png"
 }, {
 	"id": 10,
 	"techName": "Gulp",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Intermediate",
 	"techImage": "gulp.png"
 }, {
 	"id": 11,
 	"techName": "Git",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Intermediate",
 	"techImage": "git.png"
 }, {
 	"id": 12,
 	"techName": "Less",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Advanced",
 	"techImage": "less.png"
 }, {
 	"id": 13,
@@ -130,7 +135,7 @@ const techListData = [{
 	"id": 17,
 	"techName": "Photoshop",
 	"techDescription": "Sample",
-	"techLevel": "Beginner",
+	"techLevel": "Intermediate",
 	"techImage": "ps.png"
 }
 ]

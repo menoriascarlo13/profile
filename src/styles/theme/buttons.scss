@@ -1,0 +1,15 @@
+.btn-loadMore {
+	width: 100%;
+	max-width: 200px;
+	padding: 10px;
+
+	color: $white;
+
+	background-color: $blue-300;
+
+	&:hover {
+		color: $white;
+
+		background-color: rgba($blue-300, 0.8);
+	}
+}

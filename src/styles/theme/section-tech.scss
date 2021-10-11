@@ -10,11 +10,43 @@
 		width: calc(100% / 5);
 		max-width: 150px;
 		margin: 0 20px;
+		padding: 10px;
 
 		figure {
 			@include aspect-ratio(1, 1);
 
 			margin-bottom: 0;
+		}
+
+		.tech-info {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 100%;
+			height: 100%;
+
+			opacity: 0;
+			border-radius: 20px;
+			background-color: rgba($black, 0.2);
+
+			transition: opacity 0.5s ease;
+
+			.tech-level {
+				color: $white;
+
+				text-shadow: -3px 0px 3px $black;
+			}
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:hover {
+			.tech-info {
+				opacity: 1;
+			}
 		}
 	}
 }

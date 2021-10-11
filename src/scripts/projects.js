@@ -1,3 +1,5 @@
+const projectListLimit = 6;
+
 const projectList = {
 	init() {
 		this.processArray(projectListData);
@@ -7,7 +9,8 @@ const projectList = {
 		const projectCardContainer = document.getElementById('js-project-cards');
 
 		Object.keys(projectData).forEach(function(key) {
-			projectCardContainer.insertAdjacentHTML('beforeend', `
+			if(key < projectListLimit) {
+				projectCardContainer.insertAdjacentHTML('beforeend', `
 				<div class="col-12 col-md-6 col-lg-4 project-item-container">
 					<div id="project-item-${projectData[key].id}" class="project-card" 
 					data-name="${projectData[key].projectName}" 
@@ -24,8 +27,19 @@ const projectList = {
 					</div>
 				</div>
 			`);
+			}
 
 			if(key == projectData.length - 1) {
+				if(projectData.length > projectListLimit) {
+					projectCardContainer.insertAdjacentHTML('beforeend', `
+						<div class="col-12 text-center">
+							<button class="btn btn-loadMore text-uppercase">
+								Load More
+							</button>
+						</div>
+					`);
+				}
+
 				projectList.truncateData();
 			}
 		});
