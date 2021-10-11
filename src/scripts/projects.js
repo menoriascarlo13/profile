@@ -8,7 +8,7 @@ const projectList = {
 
 		Object.keys(projectData).forEach(function(key) {
 			projectCardContainer.insertAdjacentHTML('beforeend', `
-				<div class="col-12 col-md-6 col-lg-4">
+				<div class="col-12 col-md-6 col-lg-4 project-item-container">
 					<div id="project-item-${projectData[key].id}" class="project-card" 
 					data-name="${projectData[key].projectName}" 
 					data-id="${projectData[key].id}">
@@ -17,8 +17,10 @@ const projectList = {
 								<img src="dist/images/images/${projectData[key].projectImage}" alt="${projectData[key].projectName}">
 							</figure>
 						</a>
-						<h3 class="project-name">${projectData[key].projectName}</h3>
-						<p class="project-description js-project-description">${projectData[key].projectDescription}</p>
+						<div class="project-description-wrapper">
+							<h3 class="project-name">${projectData[key].projectName}</h3>
+							<p class="project-description js-project-description">${projectData[key].projectDescription}</p>
+						</div>
 					</div>
 				</div>
 			`);

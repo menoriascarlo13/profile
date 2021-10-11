@@ -1,26 +1,49 @@
 .project-card {
-    cursor: pointer;
-    overflow: hidden;
+	overflow: hidden;
 
-    &:hover {
-        img {
-            transform: scale(1.1);
-        }
-    }
+	width: 100%;
+	max-width: 400px;
+	height: 100%;
+	margin: 0 auto;
+
+	cursor: pointer;
+
+	background-color: beige;
+
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
+	}
 
 	p:last-child {
 		margin-bottom: 0;
 	}
+}
 
-	margin-bottom: 50px;
+.project-item-container {
+	@include media-breakpoint-up(lg) {
+		margin-bottom: 40px;
+	}
+}
+
+.project-description-wrapper {
+	padding: 20px;
+
+	@include media-breakpoint-up(lg) {
+		padding: 30px;
+	}
 }
 
 .project-image {
-    @include aspect-ratio(16, 9);
-    overflow: hidden;
+	@include aspect-ratio(1, 1);
 
-    img {
-        transform: scale(1);
-        transition: transform 0.3s ease;
-    }
+	overflow: hidden;
+
+	margin-bottom: 0;
+
+	img {
+		transition: transform 0.3s ease;
+		transform: scale(1);
+	}
 }
