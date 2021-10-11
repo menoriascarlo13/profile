@@ -2,10 +2,9 @@
 	position: relative;
 
 	.hero-image {
-		@include aspect-ratio(1, 2);
+		@include aspect-ratio(1, 1);
 
 		margin-bottom: 0;
-
 
 		@include media-breakpoint-up(lg) {
 			@include aspect-ratio(16, 9);
@@ -17,9 +16,13 @@
 		top: 0;
 
 		width: 100%;
-		max-width: 571px;
 		height: 100%;
-		padding-left: 50px;
+		padding: 50px;
+
+		@include media-breakpoint-up(lg) {
+			max-width: 571px;
+			padding-left: 50px;
+		}
 	}
 
 	h2,
@@ -31,6 +34,12 @@
 	.h1,
 	h2,
 	.h2 {
+		text-align: center;
+
+		@include media-breakpoint-up(lg) {
+			text-align: left;
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}

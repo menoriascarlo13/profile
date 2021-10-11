@@ -8,7 +8,7 @@
 
 	cursor: pointer;
 
-	background-color: beige;
+	background-color: $blue-100;
 
 	&:hover {
 		img {
@@ -22,6 +22,8 @@
 }
 
 .project-item-container {
+	margin-bottom: 30px;
+
 	@include media-breakpoint-up(lg) {
 		margin-bottom: 40px;
 	}
@@ -36,11 +38,14 @@
 }
 
 .project-image {
-	@include aspect-ratio(1, 1);
-
+	@include aspect-ratio(16, 9);
 	overflow: hidden;
 
 	margin-bottom: 0;
+
+	@include media-breakpoint-up(lg) {
+		@include aspect-ratio(1, 1);
+	}
 
 	img {
 		transition: transform 0.3s ease;

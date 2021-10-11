@@ -1,21 +1,23 @@
 nav {
-    min-height: 50px;
+	min-height: 50px;
 
-    background-color: $black;
+	background-color: $white;
+	box-shadow: 0 10px 17px 8px #00000012;
 
-    .nav-link {
-        color: $white;
+	.nav-link {
+		color: $black;
 
-        &:hover {
-            text-decoration: underline;
-            color: $white;
-        }
-    }
+		&:hover {
+			color: $black;
+			text-decoration: underline;
+		}
+	}
 
 	&.is-fixed {
 		position: fixed;
-		width: 100%;
-		top: 0;
 		z-index: 9999;
+		top: 0;
+
+		width: 100%;
 	}
 }
