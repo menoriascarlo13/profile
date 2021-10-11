@@ -8,6 +8,7 @@
 
 	cursor: pointer;
 
+	border-radius: 20px;
 	background-color: $blue-200;
 
 	&:hover {
@@ -39,6 +40,7 @@
 
 .project-image {
 	@include aspect-ratio(16, 9);
+
 	overflow: hidden;
 
 	margin-bottom: 0;

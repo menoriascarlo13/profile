@@ -1,7 +1,10 @@
 const tech = {
 	init() {
 		let flkty = new Flickity('.js-tech-wrapper', {
-			contain: true
+			freeScroll: true,
+			wrapAround: true,
+			pageDots: false,
+			autoPlay: 1500
 		});
 
 		console.log(flkty);
