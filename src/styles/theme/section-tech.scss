@@ -1,0 +1,12 @@
+.section-tech-stack {
+	background-color: $blue-200;
+
+	.tech-item {
+		width: calc(100% / 5);
+		margin: 0 20px;
+
+		figure {
+			@include aspect-ratio(1, 1);
+		}
+	}
+}

@@ -27,8 +27,8 @@ const beautify = require('gulp-beautify');
 const concat = require('gulp-concat');
 
 function styles() {
-    return src('src/styles/*.+(scss|sass)')
-        .pipe(changed('src/styles/*.+(scss|sass)'))
+    return src('src/styles/*.+(scss|sass|css)')
+        .pipe(changed('src/styles/*.+(scss|sass|css)'))
         .pipe(sassGlob())
         .pipe(sass())
         .pipe(gulpIf('*.css', cssnano()))

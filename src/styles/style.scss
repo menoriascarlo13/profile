@@ -25,6 +25,11 @@
 // 5. Optionally include utilities API last to generate classes based on the Sass map in `_utililies.scss`
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
+
+//6. Vendors
+@import "vendor/flickity";
+
+//7. Theme
 @import "theme/mixins";
 @import "theme/typography";
 @import "theme/global";
@@ -33,6 +38,7 @@
 @import "theme/nav";
 @import "theme/section-projects";
 @import "theme/section-hero";
+@import "theme/section-tech";
 
 
     
