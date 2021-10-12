@@ -8,9 +8,7 @@ const tech = {
 
 		Object.keys(techData).forEach(function(key) {
 			techCardContainer.insertAdjacentHTML('beforeend', `
-				<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}"
-					data-toggle="tooltip" data-placement="bottom" title="${techData[key].techName}"
-				>
+				<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}">
 					<figure>
 						<img src="dist/images/images/${techData[key].techImage}" alt="${techData[key].techName}">
 					</figure>
