@@ -1,11 +1,11 @@
 'use strict';
 
 const {
-    parallel,
-    series,
-    src,
-    dest,
-    watch
+	parallel,
+	series,
+	src,
+	dest,
+	watch
 } = require('gulp');
 
 const dartSass = require('sass');
@@ -29,115 +29,114 @@ const beautify = require('gulp-beautify');
 const concat = require('gulp-concat');
 const mainBowerFiles = require('main-bower-files');
 
-
 function styles() {
-    return src('src/styles/*.+(scss|sass|css)')
-        .pipe(changed('src/styles/*.+(scss|sass|css)'))
-        .pipe(sassGlob())
-        .pipe(sass())
-        .pipe(gulpIf('*.css', cssnano()))
-        .pipe(RevAll.revision())
-        .pipe(rename({
-            extname: '.min.css'
-        }))
-        .pipe(dest('dist/styles'))
+	return src('src/styles/*.+(scss|sass|css)')
+		.pipe(changed('src/styles/*.+(scss|sass|css)'))
+		.pipe(sassGlob())
+		.pipe(sass())
+		.pipe(gulpIf('*.css', cssnano()))
+		.pipe(RevAll.revision())
+		.pipe(rename({
+			extname: '.min.css'
+		}))
+		.pipe(dest('dist/styles'))
 }
 
 function fonts() {
-    return src('src/fonts/**/*')
-        .pipe(dest('dist/fonts'))
+	return src('src/fonts/**/*')
+		.pipe(dest('dist/fonts'))
 }
 
 function scripts() {
-    return src('src/scripts/*.js')
-        .pipe(changed('src/scripts/*.js'))
-        .pipe(gulpIf('*.js', uglify()))
-        .pipe(concat('main.js'))
-        .pipe(RevAll.revision())
-        .pipe(minify())
-        .pipe(dest('dist/scripts'))
+	return src(['src/scripts/*.js', 'src/scripts/vendor/*.js'])
+		.pipe(changed('src/scripts/*.js'))
+		.pipe(gulpIf('*.js', uglify()))
+		.pipe(concat('main.js'))
+		.pipe(RevAll.revision())
+		.pipe(minify())
+		.pipe(dest('dist/scripts'))
 }
 
 function includer() {
-    return src(mainBowerFiles())
-        .pipe(dest('src/scripts'))
+	return src(mainBowerFiles())
+	    .pipe(dest('src/scripts/vendor'))
 }
 
 function images() {
-    return src('src/assets/**/*.+(png|jpg|gif|svg|jpeg)')
-        .pipe(cache(imagemin({
-            interlaced: true
-        })))
-        .pipe(dest('dist/images'))
+	return src('src/assets/**/*.+(png|jpg|gif|svg|jpeg)')
+		.pipe(cache(imagemin({
+			interlaced: true
+		})))
+		.pipe(dest('dist/images'))
 }
 
 function clean() {
-    return del('dist');
+	return del('dist');
 }
 
 function cleanJS() {
-    return del('dist/scripts');
+	return del('dist/scripts');
 }
 
 function cleanCSS() {
-    return del('dist/styles');
+	return del('dist/styles');
 }
 
 function cleanViews() {
-    return del('dist/views/*');
+	return del('dist/views/*');
 }
 
 function removeMain() {
-    return del('main.html');
+	return del('main.html');
 }
 
 function index() {
-    return src('index.html')
-        .pipe(inject(src(['dist/scripts/*-min.js', 'dist/styles/*'], {
-            read: false
-        }), {
-            addRootSlash: false,
-            removeTags: true
-        }))
-        .pipe(beautify.html({
-            indent_size: 2
-        }))
-        .pipe(useref())
-        .pipe(dest('.'));
+	return src('index.html')
+		.pipe(inject(src(['dist/scripts/*-min.js', 'dist/styles/*'], {
+			read: false
+		}), {
+			addRootSlash: false,
+			removeTags: true
+		}))
+		.pipe(beautify.html({
+			indent_size: 2
+		}))
+		.pipe(useref())
+		.pipe(dest('.'));
 
-    // return src('index.html')
-    //     .pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
-    //         read: false
-    //     }), {
-    //         addRootSlash: false,
-    //         removeTags: true
-    //     }))
-    //     .pipe(beautify.html({
-    //         indent_size: 2
-    //     }))
-    //     .pipe(useref())
-    //     .pipe(dest('.'));
+	// return src('index.html')
+	//     .pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
+	//         read: false
+	//     }), {
+	//         addRootSlash: false,
+	//         removeTags: true
+	//     }))
+	//     .pipe(beautify.html({
+	//         indent_size: 2
+	//     }))
+	//     .pipe(useref())
+	//     .pipe(dest('.'));
 }
 
 function finalTags() {
-    return src('dist/views/main.html')
-        .pipe(injectHTML())
-        .pipe(dest('./'))
+	return src('dist/views/main.html')
+		.pipe(injectHTML())
+		.pipe(dest('./'))
 }
 
 function mainRename() {
-    return src('main.html')
-        .pipe(rename('index.html'))
-        .pipe(dest('.'))
+	return src('main.html')
+		.pipe(rename('index.html'))
+		.pipe(dest('.'))
 }
 
 function injectTags() {
-    return src('src/views/**/*.html')
-        .pipe(injectHTML())
-        .pipe(beautify.html({
-            indent_size: 2
-        }))
-        .pipe(dest('dist/views'))
+	return src('src/views/**/*.html')
+		.pipe(injectHTML())
+		.pipe(beautify.html({
+			indent_size: 2
+		}))
+		.pipe(dest('dist/views'))
 }
 
 exports.clean = clean;
@@ -146,65 +145,73 @@ exports.images = images;
 exports.includer = includer;
 
 exports.tags = series(
-    cleanViews,
-    injectTags,
-    finalTags,
-    mainRename,
-    removeMain,
-    index
+	cleanViews,
+	injectTags,
+	finalTags,
+	mainRename,
+	removeMain,
+	index
 )
 
 exports.styles = series(
-    cleanCSS,
-    styles,
-    series(finalTags, mainRename, removeMain),
-    index
+	cleanCSS,
+	styles,
+	series(finalTags, mainRename, removeMain),
+	index
 )
 
 exports.scripts = series(
-    cleanJS,
+	cleanJS,
 	includer,
-    scripts,
-    series(finalTags, mainRename, removeMain),
-    index
+	scripts,
+	series(finalTags, mainRename, removeMain),
+	index
 )
 
 exports.build = series(
-    clean,
+	clean,
 	includer,
-    parallel(fonts, images, styles, scripts),
-    series(cleanViews, injectTags, finalTags, mainRename, removeMain),
-    index
+	parallel(fonts, images, styles, scripts),
+	series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+	index
 );
 
-exports.watcher = function() {
-    watch(['src/styles/theme/*.scss', 'src/styles/*.scss'], 
-    { events: 'all' }, series(
-        cleanCSS,
-        styles,
-        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
-        index
-    ));
+exports.watcher = function () {
+	watch(['src/styles/theme/*.scss', 'src/styles/*.scss'], {
+		events: 'all'
+	}, series(
+		cleanCSS,
+		styles,
+		series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+		index
+	));
 
-    watch('src/scripts/*.js', { events: 'all' }, series(
-        cleanJS,
-        scripts,
-        series(cleanViews, injectTags, finalTags, mainRename, removeMain),
-        index
-    ));
+	watch('src/scripts/*.js', {
+		events: 'all'
+	}, series(
+		cleanJS,
+		scripts,
+		series(cleanViews, injectTags, finalTags, mainRename, removeMain),
+		index
+	));
 
-    watch('src/assets/**/*.+(png|jpg|gif|svg|jpeg)', { events: 'all' }, images);
+	watch('src/assets/**/*.+(png|jpg|gif|svg|jpeg)', {
+		events: 'all'
+	}, images);
 
-    watch('src/fonts/**/*', { events: 'all' }, fonts);
+	watch('src/fonts/**/*', {
+		events: 'all'
+	}, fonts);
 
-    watch(['src/views/*.html','src/views/top/*.html', 'src/views/bottom/*.html', 'src/views/partials/*.html'], 
-        { events: 'all' }, 
-        series(
-        cleanViews,
-        injectTags,
-        finalTags,
-        mainRename,
-        removeMain,
-        index,
-    ));
+	watch(['src/views/*.html', 'src/views/top/*.html', 'src/views/bottom/*.html', 'src/views/partials/*.html'], {
+			events: 'all'
+		},
+		series(
+			cleanViews,
+			injectTags,
+			finalTags,
+			mainRename,
+			removeMain,
+			index,
+		));
 }
