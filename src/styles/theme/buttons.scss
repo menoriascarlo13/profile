@@ -13,3 +13,29 @@
 		background-color: rgba($blue-300, 0.8);
 	}
 }
+
+.flickity-prev-next-button {
+	top: unset;
+	bottom: -80px;
+
+	background: transparent;
+
+	transform: none;
+
+	@include media-breakpoint-down(md) {
+		display: none;
+	}
+
+	&:hover {
+		opacity: 0.7;
+		background: transparent;
+	}
+
+	&.previous {
+		left: 45%;
+	}
+
+	&.next {
+		right: 45%;
+	}
+}

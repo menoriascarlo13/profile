@@ -1,0 +1,23 @@
+{
+  "name": "profile",
+  "description": "",
+  "main": "src/scripts/script.js",
+  "authors": [
+    "John Carlo Menorias <47134598+CarloStokMnl@users.noreply.github.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/menoriascarlo13/profile",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "bootstrap": "^5.1.3",
+    "popper.js": "^2.10.2"
+  }
+}

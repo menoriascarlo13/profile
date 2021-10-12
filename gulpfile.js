@@ -1,3 +1,5 @@
+'use strict';
+
 const {
     parallel,
     series,
@@ -25,6 +27,8 @@ const imagemin = require('gulp-imagemin');
 const injectHTML = require('gulp-inject-in-html');
 const beautify = require('gulp-beautify');
 const concat = require('gulp-concat');
+const mainBowerFiles = require('main-bower-files');
+
 
 function styles() {
     return src('src/styles/*.+(scss|sass|css)')
@@ -52,6 +56,11 @@ function scripts() {
         .pipe(RevAll.revision())
         .pipe(minify())
         .pipe(dest('dist/scripts'))
+}
+
+function includer() {
+    return src(mainBowerFiles())
+        .pipe(dest('src/scripts'))
 }
 
 function images() {
@@ -134,6 +143,8 @@ function injectTags() {
 exports.clean = clean;
 exports.images = images;
 
+exports.includer = includer;
+
 exports.tags = series(
     cleanViews,
     injectTags,
@@ -152,6 +163,7 @@ exports.styles = series(
 
 exports.scripts = series(
     cleanJS,
+	includer,
     scripts,
     series(finalTags, mainRename, removeMain),
     index
@@ -159,6 +171,7 @@ exports.scripts = series(
 
 exports.build = series(
     clean,
+	includer,
     parallel(fonts, images, styles, scripts),
     series(cleanViews, injectTags, finalTags, mainRename, removeMain),
     index

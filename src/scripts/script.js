@@ -3,3 +3,4 @@ window.addEventListener("load", () => {
 	projectList.init();
 	tech.init();
 });
+

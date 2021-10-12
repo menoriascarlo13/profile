@@ -6,14 +6,18 @@
 		padding-left: 0;
 	}
 
+	.tech-wrapper {
+		margin-bottom: 50px;
+	}
+
 	.tech-item {
 		width: calc(100% / 3);
 		margin: 0 20px;
 		padding: 10px;
 
 		@include media-breakpoint-up(md) {
-			max-width: 150px;
 			width: calc(100% / 5);
+			max-width: 150px;
 		}
 
 		figure {
@@ -39,7 +43,7 @@
 			.tech-level {
 				color: $white;
 
-				text-shadow: -3px 0px 3px $black;
+				text-shadow: -3px 0 3px $black;
 
 				@include media-breakpoint-down(md) {
 					font-size: 18px;
