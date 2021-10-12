@@ -16,7 +16,7 @@ const projectList = {
 
 		try {
 			if (loadMoreBtn == null) {
-				throw 'Missing load more button. Loading more function will not work and some of the ';
+				throw 'Missing load more button. Loading more function will not work';
 			}
 
 			newLimit = projectListLimit;
@@ -167,4 +167,20 @@ const projectListData = [{
 	"projectLink": "https://www.maximsport.no/",
 	"projectYear": "2020",
 	"projectImage": "maxim-no.png"
-}]
+}, {
+	"id": 8,
+	"projectName": "DOM",
+	"projectDescription": `Drop of mindfulness is a well-being brand founded by Princess Sofia and Carolina Pihl in New York 2010. For more than ten years, we have designed training clothes for life with the goal of making women dare to focus on themselves and find exactly what they feel good of
+	- whatever it is.`,
+	"projectLink": "https://www.dropofmindfulness.se/",
+	"projectYear": "2020",
+	"projectImage": "dom.png"
+}, {
+	"id": 9,
+	"projectName": "Stellar Equipment",
+	"projectDescription": `design and manufacture world class technical outdoor equipment for ourselves, and for anyone else who loves to spend their lives in the mountains.`,
+	"projectLink": "https://www.stellarequipment.com/",
+	"projectYear": "2019",
+	"projectImage": "stellar.png"
+}
+]
