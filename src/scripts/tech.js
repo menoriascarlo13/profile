@@ -11,7 +11,7 @@ const tech = {
 				<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}" 
 				data-techLevel="${techData[key].techLevel}">
 					<figure>
-						<img src="dist/images/images/${techData[key].techImage}" alt="${techData[key].techName}" width="150" height="150">
+						<img alt="${techData[key].techName}" width="150" height="150" class="js-lazy" data-src="dist/images/images/${techData[key].techImage}">
 					</figure>
 					<p class="text-center h5 tech-title mb-0">${techData[key].techName}</p>
 					<div class="tech-info text-center d-flex justify-content-center align-items-center">
