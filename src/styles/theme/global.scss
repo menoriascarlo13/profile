@@ -19,5 +19,23 @@ img {
 		&.loaded {
 			opacity: 1;
 		}
+
+		&.lazy-shine {
+			opacity: 1;
+
+			&.error,
+			&.loading {
+				background: linear-gradient(110deg, $blue-200 8%, #d9eaf1 18%, $blue-200 33%);
+				background-size: 300% 100%;
+
+				animation: shines 3s linear infinite;
+			}
+		}
+	}
+}
+
+@keyframes shines {
+	to {
+		background-position-x: -300%;
 	}
 }

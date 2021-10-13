@@ -9,7 +9,7 @@ const projectListLimit=6,projectCardContainer=document.getElementById("js-projec
 						data-id="${i[e].id}">
 							<a href="${i[e].projectLink}" target="_blank">
 								<figure class="project-image">
-									<img alt="${i[e].projectName}" class="js-lazy" data-src="dist/images/images/${i[e].projectImage}">
+									<img alt="${i[e].projectName}" class="js-lazy lazy-shine" data-src="dist/images/images/${i[e].projectImage}">
 								</figure>
 							</a>
 							<div class="project-description-wrapper">
