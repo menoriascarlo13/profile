@@ -108,11 +108,17 @@ const projectList = {
 				throw 'Missing Project Description element';
 			}
 
-			new Cuttr('.js-project-description', {
-				//options here
-				truncate: 'words',
-				length: 17
+			// new Cuttr('.js-project-description', {
+			// 	truncate: 'words',
+			// 	length: 17
+			// });
+			$(projectDescription).txtTruncate({
+				end: '...',
+				lines: 3,
+				multiline: true
 			});
+
+			console.log($);
 		} catch (err) {
 			console.warn(err);
 		}

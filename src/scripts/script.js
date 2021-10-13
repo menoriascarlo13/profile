@@ -1,8 +1,28 @@
-window.addEventListener("load", () => {
-	(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? document.body.classList.add('dark-theme') : document.body.classList.add('light-theme');
-	util.loadingTime();
-	nav.init();
-	projectList.init();
-	tech.init();
-	imgLazy.init('load');
+const main = {
+	init() {
+		$=jQuery;
+		util.loadingTime();
+		util.platformDetector();
+		util.themeSet();
+		nav.init();
+		projectList.init();
+		tech.init();
+		imgLazy.init('load');
+	},
+	resize() {
+
+	},
+	overall() {
+		util.genericDeviceDetector();
+	}
+}
+
+window.addEventListener('load', () => {
+	main.overall();
+	main.init();
+
+	window.addEventListener('resize', util.debounce(function () {
+		main.overall();
+		main.resize();
+	}, 500));
 });

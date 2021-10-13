@@ -48,7 +48,7 @@ function fonts() {
 }
 
 function scripts() {
-	return src(['src/scripts/*.js', 'src/scripts/vendor/*.js'])
+	return src('src/scripts/*.js')
 		.pipe(changed('src/scripts/*.js'))
 		.pipe(gulpIf('*.js', uglify()))
 		.pipe(concat('main.js'))
@@ -59,7 +59,7 @@ function scripts() {
 
 function includer() {
 	return src(mainBowerFiles())
-	    .pipe(dest('src/scripts/vendor'))
+	    .pipe(dest('src/scripts/'))
 }
 
 function images() {
