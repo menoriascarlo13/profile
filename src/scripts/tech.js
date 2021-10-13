@@ -12,7 +12,7 @@ const tech = {
 					<figure>
 						<img src="dist/images/images/${techData[key].techImage}" alt="${techData[key].techName}" width="150" height="150">
 					</figure>
-					<p class="text-center h5">${techData[key].techName}</p>
+					<p class="text-center h5 tech-title mb-0">${techData[key].techName}</p>
 					<div class="tech-info text-center d-flex justify-content-center align-items-center">
 						<p class="tech-description d-none">${techData[key].techDescription}</p>
 						<div>

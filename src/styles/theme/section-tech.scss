@@ -7,7 +7,9 @@
 	}
 
 	.tech-wrapper {
-		margin-bottom: 50px;
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 50px;
+		}
 	}
 
 	.tech-item {

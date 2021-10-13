@@ -31,7 +31,7 @@ const tech={init(){this.processArray(techListData)},processArray(e){const t=e,c=
 					<figure>
 						<img src="dist/images/images/${t[e].techImage}" alt="${t[e].techName}" width="150" height="150">
 					</figure>
-					<p class="text-center h5">${t[e].techName}</p>
+					<p class="text-center h5 tech-title mb-0">${t[e].techName}</p>
 					<div class="tech-info text-center d-flex justify-content-center align-items-center">
 						<p class="tech-description d-none">${t[e].techDescription}</p>
 						<div>
