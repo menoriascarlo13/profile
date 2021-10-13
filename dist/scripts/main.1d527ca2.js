@@ -20,8 +20,8 @@ const projectListLimit=6,projectCardContainer=document.getElementById("js-projec
 								</figure>
 							</a>
 							<div class="project-description-wrapper">
-								<h3 class="project-name">${i[e].projectName}</h3>
-								<p class="project-description js-project-description">${i[e].projectDescription}</p>
+								<h3 class="project-name text-center text-lg-start">${i[e].projectName}</h3>
+								<p class="project-description js-project-description text-center text-lg-start">${i[e].projectDescription}</p>
 							</div>
 						</div>
 					</div>

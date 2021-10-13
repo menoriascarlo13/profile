@@ -57,8 +57,8 @@ const projectList = {
 								</figure>
 							</a>
 							<div class="project-description-wrapper">
-								<h3 class="project-name">${data[key].projectName}</h3>
-								<p class="project-description js-project-description">${data[key].projectDescription}</p>
+								<h3 class="project-name text-center text-lg-start">${data[key].projectName}</h3>
+								<p class="project-description js-project-description text-center text-lg-start">${data[key].projectDescription}</p>
 							</div>
 						</div>
 					</div>
