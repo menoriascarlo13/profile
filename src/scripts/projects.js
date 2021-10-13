@@ -52,8 +52,8 @@ const projectList = {
 						data-name="${data[key].projectName}" 
 						data-id="${data[key].id}">
 							<a href="${data[key].projectLink}" target="_blank">
-								<figure class="project-image">
-									<img alt="${data[key].projectName}" class="js-lazy lazy-shine" data-src="dist/images/images/${data[key].projectImage}">
+								<figure class="project-image lazy-shine">
+									<img alt="${data[key].projectName}" class="js-lazy" data-src="dist/images/images/${data[key].projectImage}">
 								</figure>
 							</a>
 							<div class="project-description-wrapper">
