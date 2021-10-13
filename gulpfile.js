@@ -48,6 +48,11 @@ function fonts() {
 }
 
 function scripts() {
+	// return src('src/scripts/*.js')
+	// 	.pipe(changed('src/scripts/*.js'))
+	// 	.pipe(gulpIf('*.js', uglify()))
+	// 	.pipe(dest('dist/scripts'))
+
 	return src('src/scripts/*.js')
 		.pipe(changed('src/scripts/*.js'))
 		.pipe(gulpIf('*.js', uglify()))
@@ -59,7 +64,7 @@ function scripts() {
 
 function includer() {
 	return src(mainBowerFiles())
-	    .pipe(dest('src/scripts/'))
+		.pipe(dest('src/scripts/'))
 }
 
 function images() {
@@ -105,17 +110,17 @@ function index() {
 		.pipe(dest('.'));
 
 	// return src('index.html')
-	//     .pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
-	//         read: false
-	//     }), {
-	//         addRootSlash: false,
-	//         removeTags: true
-	//     }))
-	//     .pipe(beautify.html({
-	//         indent_size: 2
-	//     }))
-	//     .pipe(useref())
-	//     .pipe(dest('.'));
+	// 	.pipe(inject(src(['dist/scripts/*.js', 'dist/styles/*'], {
+	// 		read: false
+	// 	}), {
+	// 		addRootSlash: false,
+	// 		removeTags: true
+	// 	}))
+	// 	.pipe(beautify.html({
+	// 		indent_size: 2
+	// 	}))
+	// 	.pipe(useref())
+	// 	.pipe(dest('.'));
 }
 
 function finalTags() {

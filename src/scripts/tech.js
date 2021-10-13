@@ -6,16 +6,15 @@ const tech = {
 		const techData = data;
 		const techCardContainer = document.getElementById('js-tech-wrapper');
 
-		Object.keys(techData).forEach(function(key) {
+		Object.keys(techData).forEach(function (key) {
 			techCardContainer.insertAdjacentHTML('beforeend', `
 				<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}" 
 				data-techLevel="${techData[key].techLevel}">
 					<figure>
 						<img alt="${techData[key].techName}" width="150" height="150" class="js-lazy" data-src="dist/images/images/${techData[key].techImage}">
 					</figure>
-					<p class="text-center h5 tech-title mb-0">${techData[key].techName}</p>
+					<p class="text-center h5 tech-title mb-0 d-none d-lg-block">${techData[key].techName}</p>
 					<div class="tech-info text-center d-flex justify-content-center align-items-center">
-						<p class="tech-description d-none">${techData[key].techDescription}</p>
 						<div>
 							<p class="tech-level-title h4">Skill Level</p>
 							<p class="tech-level h4">${techData[key].techLevel}</p>
@@ -24,7 +23,13 @@ const tech = {
 				</div>
 			`);
 
-			if(key == techData.length - 1) {
+			if (window.innerWidth < 768) {
+				document.getElementById(`tech-item-${techData[key].id}`).addEventListener('click', (e) => {
+					tech.modalMobile(e.target.dataset);
+				});
+			}
+
+			if (key == techData.length - 1) {
 				tech.slider();
 			}
 		});
@@ -38,6 +43,36 @@ const tech = {
 			autoPlay: true,
 			groupCells: true
 		});
+	},
+	modalMobile(e) {
+		console.log(e);
+		const techModal = document.getElementById('js-modal');
+		const techBody = document.getElementById('js-modal-body');
+		const techTitle= document.getElementById('js-modal-label');
+		try {
+			if(techModal == null) {
+				throw 'Missing modal element';
+			}
+
+			if(techBody == null) {
+				throw 'Missing modal body element';
+			}
+
+			if(techTitle == null) {
+				throw 'Missing modal title element';
+			}
+
+			techBody.innerHTML = `Skill Level: ${e.techlevel}`;
+			techTitle.innerHTML = `${e.techname}`;
+
+			const currentModal = new bootstrap.Modal(techModal, {
+				keyboard: false
+			})
+
+			currentModal.show();
+		} catch (error) {
+			console.warn(error);
+		}
 	}
 }
 
@@ -131,5 +166,4 @@ const techListData = [{
 	"techName": "Bulma",
 	"techLevel": "Intermediate",
 	"techImage": "bulma-logo.png"
-}
-]
+}]
