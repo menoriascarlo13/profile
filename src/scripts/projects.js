@@ -24,6 +24,7 @@ const projectList = {
 				newLimit = newLimit + projectListLimit;
 				previousLimit = previousLimit + projectListLimit;
 				projectList.insertElement(projectCardContainer, newLimit, projectListData, previousLimit);
+				imgLazy.init('update');
 			});
 		} catch (err) {
 			console.warn(err);
@@ -52,7 +53,7 @@ const projectList = {
 						data-id="${data[key].id}">
 							<a href="${data[key].projectLink}" target="_blank">
 								<figure class="project-image">
-									<img src="dist/images/images/${data[key].projectImage}" alt="${data[key].projectName}">
+									<img alt="${data[key].projectName}" class="js-lazy" data-src="dist/images/images/${data[key].projectImage}">
 								</figure>
 							</a>
 							<div class="project-description-wrapper">

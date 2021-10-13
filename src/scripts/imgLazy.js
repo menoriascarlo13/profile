@@ -4,7 +4,7 @@ const imgLazy = {
 			elements_selector: '.js-lazy',
 			data_src: 'src'
 		});
-		if(status == 'loadAll') {
+		if(status == 'load') {
 			imgLazy.loadLazy(myLazyLoad);
 		}
 
