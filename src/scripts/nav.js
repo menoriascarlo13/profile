@@ -1,7 +1,7 @@
 const nav = {
 	init() {
-		let navbar = document.getElementById('js-navbar');
-		let header = document.getElementById('js-header');
+		const navbar = document.getElementById('js-navbar');
+		const header = document.getElementById('js-header');
 		let navbarHeight;
 		try {
 			if(navbar == null) {
@@ -19,5 +19,28 @@ const nav = {
 		} catch (error) {
 			console.error(error);
 		}
+
+		nav.navItem();
+	},
+	navItem() {
+		const navItem = document.getElementsByClassName('js-nav-link');
+
+		try {
+			if(navItem.length == 0) {
+				throw `Missing Navigation Item Class / Element.`;
+			}
+
+			for (let i = 0; i < navItem.length; i++) {
+				navItem[i].addEventListener('click', function(e) {
+					nav.tabTitle(e);
+				})
+			 }
+
+		} catch (error) {
+			console.error(error);
+		}
+	},
+	tabTitle(e) {
+		document.title = `JCPM - ${e.target.innerText}`;
 	}
 }
