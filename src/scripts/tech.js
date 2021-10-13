@@ -30,9 +30,11 @@ const tech = {
 		});
 	},
 	slider() {
+		const isPageDots = (window.innerWidth > 992) ? false : true;
+
 		const flkty = new Flickity('.js-tech-wrapper', {
 			wrapAround: true,
-			pageDots: false,
+			pageDots: isPageDots,
 			autoPlay: true,
 			groupCells: true
 		});
