@@ -143,21 +143,23 @@ const util = {
 			if (callNow) func.apply(context, args);
 		};
 	},
-	loadingTime() {
-		let loadingTime = 0;
+	loadingTime(status) {
+		if (status) {
+			let loadingTime = 0;
 
-		let loadingInterval = setInterval(function () {
-			loadingTime++;
-			if (document.readyState === 'complete') {
-				clearInterval(loadingInterval);
-				console.info(`Total Complete Load: ${ loadingTime } second(s)`);
-			}
-		}, 1000);
+			let loadingInterval = setInterval(function () {
+				loadingTime++;
+				if (document.readyState === 'complete') {
+					clearInterval(loadingInterval);
+					console.info(`Total Complete Load: ${ loadingTime } second(s)`);
+				}
+			}, 1000);
+		}
 	},
 	genericDeviceDetector() {
 		let isDevice = (util.isMobile()) ? 'isMobile' : 'isDesktop';
-		
-		if(document.body.classList.contains('isMobile') == true && isDevice == 'isDesktop') {
+
+		if (document.body.classList.contains('isMobile') == true && isDevice == 'isDesktop') {
 			document.body.classList.remove('isMobile');
 		} else {
 			document.body.classList.remove('isDesktop');
@@ -172,84 +174,84 @@ const util = {
 			var body = document.body;
 			var ua = navigator.userAgent;
 			var checker = {
-			  // OS
-			  Windows: ua.match(/Windows/),
-			  MacOS: ua.match(/Mac/),
-			  Android: ua.match(/Android/),
-		
-			  // Browser
-			  Msie: ua.match(/Trident/),
-			  Edge: ua.match(/Edge/),
-			  Chrome: ua.match(/Chrome/),
-			  Firefox: ua.match(/Firefox/),
-			  Safari: ua.match(/Safari/),
-		
-			  // Device
-			  isApple: ua.match(/(iPhone|iPod|iPad)/),
-			  iPhone: ua.match(/iPhone/),
-			  iPad: ua.match(/iPad/),
-			  iPod: ua.match(/iPod/),
+				// OS
+				Windows: ua.match(/Windows/),
+				MacOS: ua.match(/Mac/),
+				Android: ua.match(/Android/),
+
+				// Browser
+				Msie: ua.match(/Trident/),
+				Edge: ua.match(/Edge/),
+				Chrome: ua.match(/Chrome/),
+				Firefox: ua.match(/Firefox/),
+				Safari: ua.match(/Safari/),
+
+				// Device
+				isApple: ua.match(/(iPhone|iPod|iPad)/),
+				iPhone: ua.match(/iPhone/),
+				iPad: ua.match(/iPad/),
+				iPod: ua.match(/iPod/),
 			};
-		
+
 			if (checker.isApple) {
-			  // Apple
-			  body.classList.add('isApple');
-		
-			  if (checker.iPhone) {
-				// Apple iPhone
-				body.classList.add('iphone');
-			  } else if (checker.iPad) {
-				// Apple iPad
-				body.classList.add('ipad');
-			  } else if (checker.iPod) {
-				// Apple iPod
-				body.classList.add('ipod');
-			  }
-		
-			} else  if (checker.Windows){
-			  // Windows OS
-			  body.classList.add('windowsOS');
-		
-			  if (checker.Edge){
-				// Edge Browser
-				body.classList.add('edge');
-			  } else if (checker.Chrome){
-				// Chrome Browser
-				body.classList.add('chrome');
-			  } else if(checker.Safari){
-				// Safari Browser
-				body.classList.add('safari');
-			  } else if(checker.Firefox){
-				// Firefox Browser
-				body.classList.add('firefox');
-			  } else if(checker.Msie){
-				// IE Browser
-				body.classList.add('msie');
-			  }
-		
-			} else if (checker.MacOS){
-			  // Mac OS
-			  body.classList.add('macOS');
-		
-			  if (checker.Chrome){
-				// Chrome Browser
-				body.classList.add('chrome');
-			  } else if(checker.Safari){
-				// Safari Browser
-				body.classList.add('safari');
-			  } else if(checker.Firefox){
-				// Firefox Browser
-				body.classList.add('firefox');
-			  }
-		
-			} else if (checker.Android){
-			  // Android OS
-			  body.classList.add('AndroidOS');
+				// Apple
+				body.classList.add('isApple');
+
+				if (checker.iPhone) {
+					// Apple iPhone
+					body.classList.add('iphone');
+				} else if (checker.iPad) {
+					// Apple iPad
+					body.classList.add('ipad');
+				} else if (checker.iPod) {
+					// Apple iPod
+					body.classList.add('ipod');
+				}
+
+			} else if (checker.Windows) {
+				// Windows OS
+				body.classList.add('windowsOS');
+
+				if (checker.Edge) {
+					// Edge Browser
+					body.classList.add('edge');
+				} else if (checker.Chrome) {
+					// Chrome Browser
+					body.classList.add('chrome');
+				} else if (checker.Safari) {
+					// Safari Browser
+					body.classList.add('safari');
+				} else if (checker.Firefox) {
+					// Firefox Browser
+					body.classList.add('firefox');
+				} else if (checker.Msie) {
+					// IE Browser
+					body.classList.add('msie');
+				}
+
+			} else if (checker.MacOS) {
+				// Mac OS
+				body.classList.add('macOS');
+
+				if (checker.Chrome) {
+					// Chrome Browser
+					body.classList.add('chrome');
+				} else if (checker.Safari) {
+					// Safari Browser
+					body.classList.add('safari');
+				} else if (checker.Firefox) {
+					// Firefox Browser
+					body.classList.add('firefox');
+				}
+
+			} else if (checker.Android) {
+				// Android OS
+				body.classList.add('AndroidOS');
 			}
-		
-		  }
-		
-		  Platform.detectDevice();
+
+		}
+
+		Platform.detectDevice();
 	},
 	themeSet() {
 		(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? document.body.classList.add('dark-theme'): document.body.classList.add('light-theme');

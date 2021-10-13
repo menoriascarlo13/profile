@@ -117,8 +117,6 @@ const projectList = {
 				lines: 3,
 				multiline: true
 			});
-
-			console.log($);
 		} catch (err) {
 			console.warn(err);
 		}

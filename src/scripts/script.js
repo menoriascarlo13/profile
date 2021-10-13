@@ -1,6 +1,5 @@
 const main = {
 	init() {
-		$=jQuery;
 		util.loadingTime();
 		util.platformDetector();
 		util.themeSet();
@@ -13,7 +12,7 @@ const main = {
 
 	},
 	overall() {
-		util.genericDeviceDetector();
+		util.genericDeviceDetector(false);
 	}
 }
 
