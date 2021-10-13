@@ -27,7 +27,8 @@ const projectListLimit=6,projectCardContainer=document.getElementById("js-projec
 	- whatever it is.`,projectLink:"https://www.dropofmindfulness.se/",projectYear:"2020",projectImage:"dom.png"},{id:9,projectName:"Stellar Equipment",projectDescription:"design and manufacture world class technical outdoor equipment for ourselves, and for anyone else who loves to spend their lives in the mountains.",projectLink:"https://www.stellarequipment.com/",projectYear:"2019",projectImage:"stellar.png"}];
 window.addEventListener("load",()=>{nav.init(),projectList.init(),tech.init()});
 const tech={init(){this.processArray(techListData)},processArray(e){const t=e,c=document.getElementById("js-tech-wrapper");Object.keys(t).forEach(function(e){c.insertAdjacentHTML("beforeend",`
-				<div id="tech-item-${t[e].id}" class="tech-item" data-techId="${t[e].id}" data-techName="${t[e].techName}" data-techLevel="${t[e].techLevel}">
+				<div id="tech-item-${t[e].id}" class="tech-item" data-techId="${t[e].id}" data-techName="${t[e].techName}" 
+				data-techLevel="${t[e].techLevel}">
 					<figure>
 						<img src="dist/images/images/${t[e].techImage}" alt="${t[e].techName}" width="150" height="150">
 					</figure>
