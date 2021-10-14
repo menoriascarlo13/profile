@@ -45,21 +45,20 @@ const tech = {
 		});
 	},
 	modalMobile(e) {
-		console.log(e);
 		const techModal = document.getElementById('js-modal');
 		const techBody = document.getElementById('js-modal-body');
 		const techTitle= document.getElementById('js-modal-label');
 		try {
 			if(techModal == null) {
-				throw 'Missing modal element';
+				throw 'tech.js: Missing modal element';
 			}
 
 			if(techBody == null) {
-				throw 'Missing modal body element';
+				throw 'tech.js: Missing modal body element';
 			}
 
 			if(techTitle == null) {
-				throw 'Missing modal title element';
+				throw 'tech.js: Missing modal title element';
 			}
 
 			techBody.innerHTML = `Skill Level: ${e.techlevel}`;
@@ -72,6 +71,7 @@ const tech = {
 			currentModal.show();
 		} catch (error) {
 			console.warn(error);
+			showError.init();
 		}
 	}
 }

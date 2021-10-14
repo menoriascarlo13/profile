@@ -16,7 +16,7 @@ const projectList = {
 
 		try {
 			if (loadMoreBtn == null) {
-				throw 'Missing load more button. Loading more function will not work';
+				throw 'project.js: Missing load more button. Loading more function will not work';
 			}
 
 			newLimit = projectListLimit;
@@ -28,20 +28,21 @@ const projectList = {
 			});
 		} catch (err) {
 			console.warn(err);
+			showError.init();
 		}
 	},
 	insertElement(container, limit, data, prevLimit) {
 		try {
 			if (container == null) {
-				throw 'Portfolio Section: missing project container element or id. Hiding Portfolio Section for now';
+				throw 'project.js: Portfolio Section: missing project container element or id. Hiding Portfolio Section for now';
 			}
 
 			if (data == null) {
-				throw 'Portfolio Section: missing or undefined data. Hiding Portfolio Section for now';
+				throw 'project.js: Portfolio Section: missing or undefined data. Hiding Portfolio Section for now';
 			}
 
 			if (data.length == 0) {
-				throw 'Portfolio Section: Data Empty. Hiding Portfolio Section for now';
+				throw 'project.js: Portfolio Section: Data Empty. Hiding Portfolio Section for now';
 			}
 
 			Object.keys(data).forEach(function (key) {
@@ -84,7 +85,7 @@ const projectList = {
 						const loadMoreBtn = document.getElementById('js-load-more-container');
 						try {
 							if(loadMoreBtn == null) {
-								throw `Missing or Wrong ID on Load More button at Profile section`;
+								throw `project.js: Missing or Wrong ID on Load More button at Profile section`;
 							}
 
 							loadMoreBtn.classList.add('d-none');
@@ -98,6 +99,7 @@ const projectList = {
 			});
 		} catch (err) {
 			console.warn(err);
+			showError.init();
 		}
 	},
 	truncateData() {
@@ -105,7 +107,7 @@ const projectList = {
 
 		try {
 			if (projectDescription.length == 0) {
-				throw 'Missing Project Description element';
+				throw 'project.js: Missing Project Description element';
 			}
 
 			// new Cuttr('.js-project-description', {
@@ -119,6 +121,7 @@ const projectList = {
 			});
 		} catch (err) {
 			console.warn(err);
+			showError.init();
 		}
 	},
 }

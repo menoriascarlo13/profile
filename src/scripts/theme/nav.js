@@ -1,15 +1,15 @@
 const nav = {
 	init() {
 		const navbar = document.getElementById('js-navbar');
-		const header = document.getElementById('js-header');
+		const header = document.getElementById('js-headers');
 		let navbarHeight;
 		try {
 			if(navbar == null) {
-				throw `Missing Navigation Id / Element. Setting padding top of body to default. Removing fixed position setting of Navigation bar`;
+				throw `nav.js: Missing Navigation Id / Element. Setting padding top of body to default. Removing fixed position setting of Navigation bar`;
 			}
 
 			if(header == null) {
-				throw `Missing Header Id / Element. Setting padding top of body to default. Removing fixed position setting of Header bar`;
+				throw `nav.js: Missing Header Id / Element. Setting padding top of body to default. Removing fixed position setting of Header bar`;
 			}
 	
 			navbarHeight = navbar.offsetHeight;
@@ -18,6 +18,7 @@ const nav = {
 			header.classList.add('is-fixed');
 		} catch (error) {
 			console.error(error);
+			showError.init();
 		}
 
 		nav.navItem();
@@ -27,7 +28,7 @@ const nav = {
 
 		try {
 			if(navItem.length == 0) {
-				throw `Missing Navigation Item Class / Element.`;
+				throw `nav.js: Missing Navigation Item Class / Element.`;
 			}
 
 			for (let i = 0; i < navItem.length; i++) {
@@ -38,6 +39,7 @@ const nav = {
 
 		} catch (error) {
 			console.error(error);
+			showError.init();
 		}
 	},
 	tabTitle(e) {

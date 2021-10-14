@@ -48,3 +48,31 @@ figure {
 		background-position-x: -300%;
 	}
 }
+
+.posterError {
+	position: fixed;
+	top: 0;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+
+	color: white;
+	font-size: 41px;
+	text-align: center;
+
+	background-color: black;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 72px;
+	}
+
+	span {
+		color: #D28852;
+	}
+}
