@@ -116,7 +116,7 @@ const projectList = {
 			// });
 			$(projectDescription).txtTruncate({
 				end: '...',
-				lines: 3,
+				lines: (window.innerWidth < 768) ? 2 : 3,
 				multiline: true
 			});
 		} catch (err) {
