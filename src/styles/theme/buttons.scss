@@ -39,3 +39,11 @@
 		right: 45%;
 	}
 }
+
+button,
+.btn,
+.btn-close {
+	&:focus {
+		box-shadow: none;
+	}
+}

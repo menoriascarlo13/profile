@@ -76,7 +76,7 @@ const tech = {
 				throw 'tech.js: Missing modal title element';
 			}
 
-			techBody.innerHTML = `Skill Level: ${e.techlevel}`;
+			techBody.innerHTML = `${e.techlevel}`;
 			techTitle.innerHTML = `${e.techname}`;
 
 			const currentModal = new bootstrap.Modal(techModal, {
