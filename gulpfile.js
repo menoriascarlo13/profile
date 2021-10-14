@@ -53,8 +53,8 @@ function scripts() {
 	// 	.pipe(gulpIf('*.js', uglify()))
 	// 	.pipe(dest('dist/scripts'))
 
-	return src('src/scripts/*.js')
-		.pipe(changed('src/scripts/*.js'))
+	return src(['src/scripts/vendor/*.js', 'src/scripts/theme/*.js'])
+		.pipe(changed('src/scripts/theme/*.js'))
 		.pipe(gulpIf('*.js', uglify()))
 		.pipe(concat('main.js'))
 		.pipe(RevAll.revision())
@@ -64,7 +64,7 @@ function scripts() {
 
 function includer() {
 	return src(mainBowerFiles())
-		.pipe(dest('src/scripts/'))
+		.pipe(dest('src/scripts/vendor'))
 }
 
 function images() {
