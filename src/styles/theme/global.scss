@@ -51,6 +51,7 @@ figure {
 
 .posterError {
 	position: fixed;
+	z-index: 99999;
 	top: 0;
 
 	display: flex;

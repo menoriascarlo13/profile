@@ -1,6 +1,5 @@
 const main = {
 	init() {
-		util.loadingTime();
 		util.platformDetector();
 		util.themeSet();
 		nav.init();
@@ -12,7 +11,8 @@ const main = {
 
 	},
 	overall() {
-		util.genericDeviceDetector(false);
+		util.loadingTime(true);
+		util.genericDeviceDetector(false);	
 	}
 }
 

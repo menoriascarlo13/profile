@@ -1,7 +1,7 @@
 const nav = {
 	init() {
 		const navbar = document.getElementById('js-navbar');
-		const header = document.getElementById('js-headers');
+		const header = document.getElementById('js-header');
 		let navbarHeight;
 		try {
 			if(navbar == null) {

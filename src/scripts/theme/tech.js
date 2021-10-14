@@ -6,33 +6,48 @@ const tech = {
 		const techData = data;
 		const techCardContainer = document.getElementById('js-tech-wrapper');
 
-		Object.keys(techData).forEach(function (key) {
-			techCardContainer.insertAdjacentHTML('beforeend', `
-				<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}" 
-				data-techLevel="${techData[key].techLevel}">
-					<figure>
-						<img alt="${techData[key].techName}" width="150" height="150" class="js-lazy" data-src="dist/images/images/${techData[key].techImage}">
-					</figure>
-					<p class="text-center h5 tech-title mb-0 d-none d-lg-block">${techData[key].techName}</p>
-					<div class="tech-info text-center d-flex justify-content-center align-items-center">
-						<div>
-							<p class="tech-level-title h4">Skill Level</p>
-							<p class="tech-level h4">${techData[key].techLevel}</p>
+		try {
+			if(techCardContainer == null) {
+				throw 'tech.js: Missing Tech Container';
+			}
+
+			if(techData.length == 0) {
+				console.warn('tech.js: Empty Tech Data');
+				techCardContainer.style.display = 'none';
+			}
+
+			Object.keys(techData).forEach(function (key) {
+				techCardContainer.insertAdjacentHTML('beforeend', `
+					<div id="tech-item-${techData[key].id}" class="tech-item" data-techId="${techData[key].id}" data-techName="${techData[key].techName}" 
+					data-techLevel="${techData[key].techLevel}">
+						<figure>
+							<img alt="${techData[key].techName}" width="150" height="150" class="js-lazy" data-src="dist/images/images/${techData[key].techImage}">
+						</figure>
+						<p class="text-center h5 tech-title mb-0 d-none d-lg-block">${techData[key].techName}</p>
+						<div class="tech-info text-center d-flex justify-content-center align-items-center">
+							<div>
+								<p class="tech-level-title h4">Skill Level</p>
+								<p class="tech-level h4">${techData[key].techLevel}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-			`);
+				`);
+	
+				if (window.innerWidth < 768) {
+					document.getElementById(`tech-item-${techData[key].id}`).addEventListener('click', (e) => {
+						tech.modalMobile(e.target.dataset);
+					});
+				}
+	
+				if (key == techData.length - 1) {
+					tech.slider();
+				}
+			});
 
-			if (window.innerWidth < 768) {
-				document.getElementById(`tech-item-${techData[key].id}`).addEventListener('click', (e) => {
-					tech.modalMobile(e.target.dataset);
-				});
-			}
-
-			if (key == techData.length - 1) {
-				tech.slider();
-			}
-		});
+		} catch (error) {
+			console.warn(error);
+			showError.init();
+		}
 	},
 	slider() {
 		const isPageDots = (window.innerWidth > 992) ? false : true;
