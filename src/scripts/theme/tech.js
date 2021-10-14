@@ -7,11 +7,11 @@ const tech = {
 		const techCardContainer = document.getElementById('js-tech-wrapper');
 
 		try {
-			if(techCardContainer == null) {
+			if (techCardContainer == null) {
 				throw 'tech.js: Missing Tech Container';
 			}
 
-			if(techData.length == 0) {
+			if (techData.length == 0) {
 				console.warn('tech.js: Empty Tech Data');
 				techCardContainer.style.display = 'none';
 			}
@@ -32,13 +32,13 @@ const tech = {
 						</div>
 					</div>
 				`);
-	
+
 				if (window.innerWidth < 768) {
 					document.getElementById(`tech-item-${techData[key].id}`).addEventListener('click', (e) => {
 						tech.modalMobile(e.target.dataset);
 					});
 				}
-	
+
 				if (key == techData.length - 1) {
 					tech.slider();
 				}
@@ -62,17 +62,17 @@ const tech = {
 	modalMobile(e) {
 		const techModal = document.getElementById('js-modal');
 		const techBody = document.getElementById('js-modal-body');
-		const techTitle= document.getElementById('js-modal-label');
+		const techTitle = document.getElementById('js-modal-label');
 		try {
-			if(techModal == null) {
+			if (techModal == null) {
 				throw 'tech.js: Missing modal element';
 			}
 
-			if(techBody == null) {
+			if (techBody == null) {
 				throw 'tech.js: Missing modal body element';
 			}
 
-			if(techTitle == null) {
+			if (techTitle == null) {
 				throw 'tech.js: Missing modal title element';
 			}
 
