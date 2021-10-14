@@ -4,6 +4,11 @@
 	@include media-breakpoint-up(lg) {
 		padding: 80px 0;
 	}
+
+
+	&.space-small {
+		padding: 20px 0;
+	}
 }
 
 img:not([src]):not([srcset]) {
