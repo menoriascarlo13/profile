@@ -20,8 +20,10 @@
 		padding: 50px;
 
 		@include media-breakpoint-up(lg) {
-			max-width: 50%;
+			align-items: flex-start;
+
 			width: 100%;
+			max-width: 50%;
 			height: 100%;
 			padding-left: 100px;
 		}
