@@ -1,7 +1,9 @@
 const txtFit = {
-	init(e) {
-		textFit(document.getElementsByClassName(e), {
-			multiLine: true
-		})
+	init(e, option) {
+		console.log(option);
+		if(option != null || option != undefined) {
+			console.log(option);
+			textFit(document.getElementsByClassName(e), option);
+		}
 	}
 }

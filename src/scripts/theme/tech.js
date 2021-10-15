@@ -52,12 +52,13 @@ const tech = {
 	},
 	slider() {
 		const isPageDots = (window.innerWidth > 992) ? false : true;
+		const isGroupCell = (window.innerWidth > 992) ? false : true;
 
 		const flkty = new Flickity('.js-tech-wrapper', {
 			wrapAround: true,
 			pageDots: isPageDots,
 			autoPlay: true,
-			groupCells: true
+			groupCells: isGroupCell
 		});
 	},
 	modalMobile(e) {

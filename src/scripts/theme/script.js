@@ -7,12 +7,17 @@ const main = {
 		tech.init();
 		imgLazy.init('load');
 	},
-	resize() {
+	resizeOnly() {
 
 	},
 	overall() {
 		util.loadingTime(true);
 		util.genericDeviceDetector(false);
+		txtFit.init('js-banner-name', {
+			widthOnly: true,
+			maxFontSize: 60
+		});
+		scroller.init();
 	}
 }
 
@@ -22,6 +27,6 @@ window.addEventListener('load', () => {
 
 	window.addEventListener('resize', util.debounce(function () {
 		main.overall();
-		main.resize();
+		main.resizeOnly();
 	}, 500));
 });
