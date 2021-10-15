@@ -58,6 +58,10 @@
 
 			transition: opacity 0.5s ease;
 
+			@include media-breakpoint-up(lg) {
+				padding: 15px;
+			}
+
 			.tech-level,
 			.tech-level-title {
 				color: $white;

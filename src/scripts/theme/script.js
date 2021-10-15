@@ -12,7 +12,7 @@ const main = {
 	},
 	overall() {
 		util.loadingTime(true);
-		util.genericDeviceDetector(false);	
+		util.genericDeviceDetector(false);
 	}
 }
 

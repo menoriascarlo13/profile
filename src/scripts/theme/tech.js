@@ -41,6 +41,7 @@ const tech = {
 
 				if (key == techData.length - 1) {
 					tech.slider();
+					txtFit.init('tech-level');
 				}
 			});
 
