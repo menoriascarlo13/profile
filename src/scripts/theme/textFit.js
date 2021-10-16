@@ -1,7 +1,7 @@
 const txtFit = {
-	init(e, option) {
+	init(element, option) {
 		if(option != null || option != undefined) {
-			textFit(document.getElementsByClassName(e), option);
+			textFit(document.getElementsByClassName(element), option);
 		}
 	}
 }
