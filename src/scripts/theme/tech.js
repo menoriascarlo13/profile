@@ -183,4 +183,9 @@ const techListData = [{
 	"techName": "Bulma",
 	"techLevel": "Intermediate",
 	"techImage": "bulma-logo.png"
+}, {
+	"id": 19,
+	"techName": "Typescript",
+	"techLevel": "Beginner",
+	"techImage": "typescript.png"
 }]
