@@ -5,7 +5,6 @@ const scroller = {
 		let lastScrollTop = 0;
 		let timer = null;
 		const targetHeight = (window.innerHeight / 3).toFixed();
-		console.log(targetHeight);
 
 		try {
 			if (arrowUp == null) {
