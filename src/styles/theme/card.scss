@@ -11,9 +11,15 @@
 	border-radius: 10px;
 	background-color: $blue-200;
 
-	&:hover {
-		img {
-			transform: scale(1.1);
+	transition: background-color 0.3s ease;
+
+	@include media-breakpoint-up(lg) {
+		&:hover {
+			background-color: $blue-400;
+
+			img {
+				transform: scale(1.1);
+			}
 		}
 	}
 

@@ -6,6 +6,7 @@ $beige-100: 	#fbb13c;
 $blue-100: 		#bceff8;
 $blue-200: 		#eff9fd;
 $blue-300: 		#003375;
+$blue-400: 		#ddf5ff;
 
 $primary:           $black;
 $secondary:         $white;
@@ -27,7 +28,8 @@ $colors: (
   "red":            $red,
   "blue-100":       $blue-100,
   "blue-200":       $blue-200,
-  "blue-300":       $blue-300
+  "blue-300":       $blue-300,
+  "blue-400":       $blue-400
 ) !default;
 
 $grid-breakpoints: (
