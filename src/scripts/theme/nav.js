@@ -62,7 +62,6 @@ const nav = {
 			const finalPosition = currElement.offsetTop - navbar.offsetHeight;
 
 			window.scrollTo(0, finalPosition);
-			console.log(navbar.offsetHeight);
 		} catch (error) {
 			console.warn(error);
 		}
