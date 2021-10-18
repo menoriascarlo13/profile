@@ -11,8 +11,8 @@ const main = {
 
 	},
 	overall() {
-		util.loadingTime(true);
-		util.genericDeviceDetector(false);
+		util.loadingTime(false);
+		util.genericDeviceDetector(true);
 		txtFit.init('js-banner-name', {
 			widthOnly: true,
 			maxFontSize: 60

@@ -57,6 +57,7 @@ const scroller = {
 			} else {
 				if (arrowUp.classList.contains('is-show')) {
 					arrowUp.classList.remove('is-show');
+					document.title = `JCPM - Profile`;
 				}
 			}
 		} catch (error) {
