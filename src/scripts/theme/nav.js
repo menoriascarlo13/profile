@@ -32,15 +32,26 @@ const nav = {
 			}
 
 			for (let i = 0; i < navItem.length; i++) {
+				navItem[i].id = `${navItem[i].dataset.nav}-nav`;
+
 				navItem[i].addEventListener('click', function (e) {
 					nav.changeTabTitle(e);
 					nav.scrollToSection(e);
+					nav.toggleNav(navItem, `${e.target.dataset.nav}-nav`);
+					e.target.classList.add('active');
 				});
 			}
 
 		} catch (error) {
 			console.error(error);
 			showError.init();
+		}
+	},
+	toggleNav(elements, currentId) {
+		for (let i = 0; i < elements.length; i++) {
+			if(elements[i].id != currentId) {
+				elements[i].classList.remove('active');
+			}
 		}
 	},
 	changeTabTitle(element) {

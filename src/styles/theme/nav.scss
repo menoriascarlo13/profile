@@ -8,9 +8,11 @@ nav {
 		color: $black;
 		cursor: pointer;
 
-		&:hover {
-			color: $black;
-			text-decoration: underline;
+		@include media-breakpoint-up(lg) {
+			&:hover {
+				color: $black;
+				text-decoration: underline;
+			}
 		}
 	}
 
@@ -20,5 +22,9 @@ nav {
 		top: 0;
 
 		width: 100%;
+	}
+
+	.active {
+		font-weight: bold;
 	}
 }
