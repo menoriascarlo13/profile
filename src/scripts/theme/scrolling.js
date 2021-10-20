@@ -40,6 +40,8 @@ const scroller = {
 				if (finalSt === 'scrollingUp' && st < targetHeight) {
 					scroller.showScrollTopButton(false);
 				}
+
+				scroller.detectSection();
 			}, 150);
 
 			lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
@@ -63,5 +65,9 @@ const scroller = {
 			console.warn(error);
 		}
 
+	},
+	detectSection() {
+		const ele = document.getElementById('js-section-tech');
+		console.log(util.isInView(ele, 'completely'));
 	}
 }
