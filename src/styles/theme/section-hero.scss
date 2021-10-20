@@ -2,7 +2,7 @@
 	position: relative;
 
 	.hero-image {
-		@include aspect-ratio(1, 1.8);
+		@include aspect-ratio(1, 1.75);
 
 		max-height: calc(100vh - 56px);
 		margin-bottom: 0;
