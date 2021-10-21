@@ -1,4 +1,6 @@
 const arrowUp = document.getElementById('js-arrow-up');
+let currectActiveElement = [];
+let toDelete;
 
 const scroller = {
 	init() {
@@ -41,7 +43,7 @@ const scroller = {
 					scroller.showScrollTopButton(false);
 				}
 
-				scroller.detectSection();
+				// scroller.detectSection();
 			}, 150);
 
 			lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
@@ -66,8 +68,4 @@ const scroller = {
 		}
 
 	},
-	detectSection() {
-		const ele = document.getElementById('js-section-tech');
-		console.log(util.isInView(ele, 'completely'));
-	}
 }

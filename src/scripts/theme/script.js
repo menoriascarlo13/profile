@@ -6,6 +6,7 @@ const main = {
 		projectList.init();
 		tech.init();
 		imgLazy.init('load');
+		footer.init();
 	},
 	resizeOnly() {
 
