@@ -11,6 +11,8 @@ const tech = {
 				throw 'tech.js: Missing Tech Container';
 			}
 
+			
+
 			if (techData.length == 0) {
 				console.warn('tech.js: Empty Tech Data');
 				techCardContainer.style.display = 'none';

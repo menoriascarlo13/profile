@@ -37,8 +37,8 @@ const nav = {
 				navItem[i].addEventListener('click', function (e) {
 					nav.changeTabTitle(e);
 					nav.scrollToSection(e);
-					nav.toggleNav(navItem, `${e.target.dataset.nav}-nav`);
-					e.target.classList.add('active');
+					// nav.toggleNav(navItem, `${e.target.dataset.nav}-nav`);
+					// e.target.classList.add('active');
 				});
 			}
 
