@@ -190,4 +190,10 @@ const techListData = [{
 	"techName": "Typescript",
 	"techLevel": "Beginner",
 	"techImage": "typescript.png"
-}]
+}, {
+	"id": 20,
+	"techName": "TailwindCSS",
+	"techLevel": "Beginner",
+	"techImage": "tailwindcss-icon.svg"
+}
+]
